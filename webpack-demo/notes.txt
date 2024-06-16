@@ -1,0 +1,5 @@
+"scripts": {
+     "build": "webpack --config webpacktestjs ",   // if have diff config  file name than webpack.config.js
+  },
+
+Loaders allow Webpack to process and bundle these non-JavaScript files by transforming them into modules that can be included in the dependency graph and ultimately bundled.
