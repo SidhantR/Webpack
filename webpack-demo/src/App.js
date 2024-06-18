@@ -1,6 +1,14 @@
+import './app.css'
+import logo from "./dog.jpg";
+
 function App() {
   return (
-    <h1>Welcome Back</h1>
+    <div>
+      <h1 className="textColor">Welcome Back</h1>
+      <div>
+        <img src={logo} alt="imgdogo" />
+      </div>
+    </div>
   );
 }
 

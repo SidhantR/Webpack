@@ -1,5 +1,13 @@
-"scripts": {
-     "build": "webpack --config webpacktestjs ",   // if have diff config  file name than webpack.config.js
-  },
+scripts": {
+  "build": "webpack --config webpacktestjs ",   // if have diff config  file name than webpack.config.js
+},
 
 Loaders allow Webpack to process and bundle these non-JavaScript files by transforming them into modules that can be included in the dependency graph and ultimately bundled.
+
+{
+  test: /\.css$/,
+  use: ['css-loader', 'style-loader']
+}
+
+css-loader -> Transforming CSS code into JavaScript modules that Webpack can process
+style-loader -> Injecting CSS styles into the DOM at runtime when the JavaScript bundle is executed in the browser.
