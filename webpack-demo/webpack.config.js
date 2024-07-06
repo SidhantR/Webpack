@@ -12,7 +12,8 @@ module.exports = {
     // },
     output : {          //Specifies where the bundled output should be placed
         path: path.join(__dirname, '/dist'),
-        filename: 'main.[fullhash].js'
+        filename: 'main.[fullhash].js',
+        chunkFilename: '[name].bundle.[fullhash].js'
     },
     module: {     //Defines how files should be transformed by loaders before they are added to the bundle
         rules: [
