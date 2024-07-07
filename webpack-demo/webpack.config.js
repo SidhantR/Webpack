@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const MiniCssExtractPlugin  = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
     mode: 'development',
@@ -63,7 +64,12 @@ module.exports = {
         }),
         new CleanWebpackPlugin(),
         new CssMinimizerPlugin(),
-        new MiniCssExtractPlugin({filename: '[name].[fullhash].css'})
+        new MiniCssExtractPlugin({filename: '[name].[fullhash].css'}),
+        new CopyPlugin({
+            patterns: [
+                {from : 'public', to: 'images'}
+            ]
+        })
     ],
     devServer:{      //Configures the development server options for Webpack.
         host: 'localhost',
