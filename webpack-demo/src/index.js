@@ -1,7 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import loadable from 'react-loadable'
 import { lazy, Suspense } from 'react';
 
 const LoadComponent = () => <h5> Loading....</h5>

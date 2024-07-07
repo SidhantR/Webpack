@@ -2,6 +2,9 @@ const path = require("path");
 const port = process.env.PORT || 8081
 const webpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const MiniCssExtractPlugin  = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
 module.exports = {
     mode: 'development',
@@ -26,7 +29,11 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader',]
+                use: [
+                    // 'style-loader', 
+                    MiniCssExtractPlugin.loader,
+                    'css-loader'
+                ]
             },
             {
                 test: /\.html$/,
@@ -47,8 +54,16 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html'
-        })
+            template: './src/index.html',
+            minify: {
+                removeAttributeQuotes: true,
+                removeComments: true,
+                collapseWhitespace: true
+            }
+        }),
+        new CleanWebpackPlugin(),
+        new CssMinimizerPlugin(),
+        new MiniCssExtractPlugin({filename: '[name].[fullhash].css'})
     ],
     devServer:{      //Configures the development server options for Webpack.
         host: 'localhost',
